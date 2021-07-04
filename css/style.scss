@@ -1,0 +1,67 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Mukta", sans-serif;
+}
+
+// mixin - possibilita criar funções no CSS, ele é um recurso que o Sass oferece
+@mixin responsive() {
+  @media screen and (max-width: 960px) {
+    // @content - será o conteúdo que vai ser carregado dentro do media screen
+    @content;
+  }
+}
+
+// Para chamar a função, é nescessário usar o @include e o nome da funcao
+
+@import "partials/colors";
+
+::-webkit-scrollbar-track {
+  background: $blue-dark;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: $gray-3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $red-dark;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+
+  background-color: $blue-dark;
+}
+
+img,
+svg {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+}
+
+.border {
+  border: 1px solid red;
+}
+
+p {
+  font-size: 16px;
+  color: $gray-3;
+  letter-spacing: 1px;
+  line-height: 140%;
+}
+
+@import "partials/layout";
+@import "partials/menu";
+@import "partials/animations";
+@import "partials/spacing";
