@@ -39,7 +39,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina a ferramenta
 $ git clone https://github.com/N1ck-gif/Spider-Man-Miles-Morales.git
 
 ```
-Após isso, basta abrir o arquivo **index.html** para iniciar o projeto.<br /><br />
+Após este procedimento, basta abrir o arquivo **index.html** para iniciar o projeto.<br /><br />
 
 ---
 
