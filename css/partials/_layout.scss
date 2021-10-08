@@ -18,8 +18,8 @@
   overflow: none;
 
   // border: 1px solid red;
-  height: 85vh;
-
+  height: 100vh;
+  padding-top: 15vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -38,6 +38,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  p {
+    font-weight: 300;
+    @include responsive() {
+      text-align: center;
+      width: 90%;
+      margin: 14px auto 20px auto;
+    }
+  }
 }
 
 .spiderman {
@@ -47,6 +56,16 @@
   @include responsive() {
     width: 100%;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+.item-3 {
+  @include responsive() {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -108,6 +127,10 @@
       opacity: 1;
     }
   }
+
+  @include responsive() {
+    margin-bottom: 10px;
+  }
 }
 
 .btn-secondary {
@@ -130,21 +153,33 @@
     display: block;
     position: absolute;
     top: -1px;
-    left: -1px;
+    left: -2px;
 
     z-index: -1;
 
     width: 0%;
-    height: 103%;
+    height: 104%;
     transition: 0.5s ease;
 
-    background: linear-gradient(225deg, #ea1d22 0%, #b31317 100%);
+    background: linear-gradient(225deg, $red 0%, $red-dark 100%);
   }
 
   &:hover {
     &::after {
       width: 102%;
     }
+  }
+
+  @include responsive() {
+    margin-left: -16px !important;
+  }
+}
+
+.item-4 {
+  @include responsive() {
+    width: 100%;
+    justify-content: center;
+    margin-top: 14px !important;
   }
 }
 
@@ -165,18 +200,13 @@
 
   &::after {
     content: "";
-    width: 100%;
-    height: 100%;
+    width: 102vw;
+    height: 102vh;
     position: absolute;
     top: 0;
     left: 0;
     display: block;
-    background: linear-gradient(
-      110deg,
-      $blue-dark 25%,
-      rgba(11, 12, 16, 0.8) 50%,
-      $blue-dark 70%
-    );
+    background: linear-gradient(110deg, $blue-dark 25%, rgba(11, 12, 16, 0.8) 50%, $blue-dark 70%);
   }
 }
 
@@ -195,13 +225,17 @@
 
   overflow: hidden;
 
-  background: linear-gradient(225deg, $red 0%, $red-dark 100%);
+  background: linear-gradient(225deg, $blue 0%, $blue-dark 100%);
 }
 
 .container-bg-secao {
   width: 100%;
   height: 750px;
   background: linear-gradient(180deg, #0a0c10 0%, #14181f 100%);
+
+  @include responsive() {
+    height: auto;
+  }
 }
 
 .container-conteudo {
@@ -212,22 +246,40 @@
 
   display: flex;
   flex-direction: row;
+
+  @include responsive() {
+    max-width: 100%;
+    flex-direction: column-reverse;
+  }
 }
 
 .container-img-story {
   width: 50%;
   height: inherit;
 
+  @include responsive() {
+    width: 100%;
+    overflow: hidden;
+  }
+
   img {
     width: 140%;
     transform: translate3d(-100px, 0, 0);
-    // transform: rotate(-10deg);
+
+    @include responsive() {
+      width: 100%;
+      transform: translate3d(20px, 0, 0);
+    }
   }
 }
 
 .container-conteudo-story {
   width: 50%;
   height: inherit;
+
+  @include responsive() {
+    width: 100%;
+  }
 }
 
 .titulo {
@@ -238,12 +290,20 @@
   justify-content: flex-end;
   padding-right: 20px;
 
+  @include responsive() {
+    height: 64px;
+  }
+
   h1 {
     font-size: 80px;
     color: $white-dark;
     font-weight: 300;
     letter-spacing: 3px;
     position: absolute;
+
+    @include responsive() {
+      font-size: 48px;
+    }
   }
 
   h1:nth-child(1) {
@@ -251,31 +311,42 @@
   }
 
   h1:nth-child(2) {
-    margin-right: 5px;
+    // margin-right: 5px;
+    opacity: 0;
     color: $red;
+    filter: blur(3px);
   }
 
   &::after {
     content: "";
     width: 550px;
-    height: 3px;
+    height: 2px;
     background-color: $red-dark;
     position: absolute;
     bottom: -15px;
     margin-right: -16px;
+    // filter: blur(0.5px);
+    box-shadow: 0 0 16px $red-dark;
+
+    @include responsive() {
+      width: 65%;
+      right: 9%;
+    }
   }
 }
 
 .story {
   width: 470px;
   height: 500px;
-  background: linear-gradient(180deg, #272a31 0%, #14181f 100%);
+  background-color: #14181f;
+  // background: linear-gradient(180deg, #272a31 0%, #14181f 100%);
   margin: 0 auto;
   margin-top: 64px;
   transform: skew(-10deg);
   display: flex;
   justify-content: center;
-  box-shadow: 11px -11px 1px $red-dark;
+  // box-shadow: 11px -11px 1px $red-dark;
+  transition: 0.5s ease;
 
   p {
     width: 330px;
@@ -284,6 +355,24 @@
     font-size: 20px;
     margin: auto 0;
     // margin-left: 50px;
+
+    @include responsive() {
+      font-size: 17px;
+    }
+  }
+
+  &:hover {
+    // transition: .5s ease;
+    text-shadow: 4px 4px 4px black;
+    transition: 0.5s ease-out;
+    background-color: #0a0c10;
+  }
+
+  @include responsive() {
+    width: 80%;
+    height: auto;
+    padding: 24px;
+    transform: skew(-6deg);
   }
 }
 
@@ -298,6 +387,17 @@
   .titulo {
     justify-content: flex-start;
     margin-top: 50px;
+
+    @include responsive() {
+      padding-left: 16px;
+    }
+
+    &::after {
+      @include responsive() {
+        width: 65%;
+        left: 4%;
+      }
+    }
   }
 
   h1:nth-child(2) {
@@ -325,8 +425,13 @@
 
     img {
       width: 60px;
-      height: 60px;
+      height: auto;
       margin-top: -80px;
+      
+      @include responsive() {
+        width: 40px;
+        margin-top: -70px;
+      }
     }
 
     .prev {
@@ -344,15 +449,28 @@
   height: auto;
   margin: 0 auto;
 
+  @include responsive() {
+    width: 76%;
+  }
+
   .center {
     height: 400px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    
+    @include responsive() {
+      height: 200px;
+    }
 
     .slick-list {
       height: 500px;
+
+      @include responsive() {
+        height: 300px;
+        // background-color: green;
+      }
     }
 
     .carousel-item {
@@ -360,6 +478,12 @@
       margin-top: 80px;
       transition: 0.5s ease;
       outline: none;
+
+      @include responsive() {
+        // width: 220px !important;
+        height: 150px;
+        margin-top: 30px;
+      }
     }
 
     img {
@@ -394,15 +518,23 @@
   width: 200px;
   height: auto;
   margin: 0 auto;
+
+  @include responsive() {
+    width: auto;
+  }
 }
 
 footer {
   width: 100%;
-  height: 120px;
-  background: linear-gradient(180deg, #272A31 0%, #EA1D22 100%);
+  height: 200px;
+  background: linear-gradient(180deg, #272a31 0%, #B31317 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include responsive() {
+    height: 140px;
+  }
 
   h1 {
     font-size: 30px;
@@ -410,6 +542,17 @@ footer {
     font-weight: 300;
     letter-spacing: 3px;
     position: absolute;
+    font-style: italic;
+    transition: .5s ease;
+    cursor: none;
+
+    &:hover {
+      transform: scale(1.1); 
+    }
+
+    @include responsive() {
+      font-size: 22px;
+    }
   }
 
   h1:nth-child(1) {
@@ -419,5 +562,6 @@ footer {
   h1:nth-child(2) {
     margin-right: 5px;
     color: $red;
+    filter: blur(3px);
   }
 }

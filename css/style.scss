@@ -24,7 +24,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
   background: $gray-3;
 }
 
@@ -37,6 +37,8 @@ body {
   height: 100vh;
 
   background-color: $blue-dark;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 img,

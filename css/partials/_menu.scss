@@ -1,6 +1,14 @@
 header {
     width: 100%;
-    padding-top: 16px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#nav-header.change {
+    background: linear-gradient(110deg, $blue-dark 25%, rgba(11, 12, 16, 0.8) 50%, $blue-dark 70%);
+    height: 300px;
 }
 
 .navbar {
@@ -11,6 +19,10 @@ header {
     justify-content: space-between;
     align-items: center;
 
+    @include responsive() {
+        flex-wrap: wrap;
+    }
+    
 }
 
 .nav-menu {
@@ -32,13 +44,14 @@ header {
     }
 }
 
-.logo {
+#logo {
     max-width: 88px;
+    cursor: pointer;
 }
 
 .nav-link {
     display: inline-block;
-    
+
     font-size: 16px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -46,13 +59,13 @@ header {
     color: $gray-3;
 
     padding: 8px 14px;
-    transition: .5s ease;
+    transition: 0.5s ease;
 
     position: relative;
     cursor: pointer;
 
     &::after {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         top: -40px;
@@ -60,9 +73,9 @@ header {
 
         width: 2px;
         height: 0px;
-        transition: .5s ease;
+        transition: 0.5s ease;
 
-        background: linear-gradient(180deg, rgba(233, 29, 34, 0) 0%, #E91D22 100%);
+        background: linear-gradient(180deg, rgba(233, 29, 34, 0) 0%, #e91d22 100%);
     }
 
     &:hover {
@@ -74,18 +87,84 @@ header {
     }
 }
 
+#nav-list-mobile {
+    display: none;
+    
+    @include responsive() {
+        &.change {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: animateSticky 0.5s ease;
+
+        }
+
+        .nav-link {
+            margin-bottom: 20px;
+            
+            &::after {
+                top: -25px;
+            }
+
+            &:hover {
+                color: $white-light;
+        
+                &::after {
+                    height: 30px;
+                }
+            }
+        }
+    }
+}
+
 .bx {
+    display: none;
     width: 48px;
     height: 48px;
-    background-color: $white;
     border-radius: 8px;
 
-    display: none;
-
     @include responsive() {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        #menu-mobile {
+            width: 32px;
+            height: auto;
+        }
+        .bar {
+            height: 3px;
+            margin-bottom: 4px;
+            width: 100%;
+            background-color: $white;
+            display: block;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+        #bar1 {
+            transform: translateY(-4px);
+        }
+        #bar3 {
+            transform: translateY(4px);
+        }
+
+        .change .bar {
+            background-color: white;
+        }
+        .change #bar1 {
+            transform: translateY(5px) rotateZ(-45deg);
+        }
+        .change #bar3 {
+            transform: translateY(-9px) rotate(45deg);
+        }
+        .change #bar2 {
+            opacity: 0;
+        }
+        .change {
+            display: block;
+        }
     }
-    
 }
 
 .nav-social {
@@ -97,12 +176,14 @@ header {
         margin-left: 16px;
         width: 24px;
 
-        path, circle {
-            transition: .5s ease;
+        path,
+        circle {
+            transition: 0.5s ease;
         }
 
         &:hover {
-            path, circle {
+            path,
+            circle {
                 fill: $red-light;
                 // Esta é a animação que faz o icone subir
                 transform: translate3d(0, -3px, 0);
@@ -112,5 +193,21 @@ header {
 
     @include responsive() {
         display: none;
+    }
+}
+
+.sticky {
+    background: linear-gradient(110deg, $blue-dark 25%, rgba(11, 12, 16, 0.8) 50%, $blue-dark 70%);
+    z-index: 1000;
+    position: fixed;
+    animation: animateSticky 0.5s ease;
+}
+
+@keyframes animateSticky {
+    to {
+        transform: translateY(0);
+    }
+    from {
+        transform: translateY(-96px);
     }
 }

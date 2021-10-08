@@ -1,7 +1,44 @@
 // DOMContentLoaded - dispara o evento depois que o conteúdo está todo carregado na página
 document.addEventListener("DOMContentLoaded", () => {
-  let tl = new TimelineMax();
+  scrollElements();
 
+  // Animação da imagem
+  $(".js-tilt").tilt({
+    perspective: 2000,
+    scale: 1.01,
+  });
+
+  // Configurações do carousel
+  $(".center").slick({
+    centerMode: true,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    prevArrow: $(".prev"),
+    nextArrow: $(".next"),
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "40px",
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "40px",
+          slidesToShow: 1,
+        },
+      },
+    ],
+  });
+
+  // Animações quando a tela é carregada
+  let tl = new TimelineMax();
   tl.fromTo(
     ".bg-loader",
     1,
@@ -18,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     )
 
     .fromTo(
-      ".logo",
+      "#logo",
       0.7,
       { y: -50, opacity: 0 },
       { y: 0, opacity: 1, ease: Expo.easeinOut },
@@ -80,15 +117,87 @@ document.addEventListener("DOMContentLoaded", () => {
       { y: 0, opacity: 1, ease: Expo.easeinOut },
       "-=0.5"
     );
+
+    setTimeout(() => {
+      document.getElementById("body").style.overflowY = "scroll"
+    }, 8000);
 });
 
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: size,
-  slidesToScroll: size,
-};
+function scrollElements() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to("#titulo-sombra-story", {
+    scrollTrigger: {
+      trigger: "#titulo-sombra-story",
+      start: "top 80%",
+      end: "bottom 5%",
+      scrub: true,
+    },
+    x: -6,
+    opacity: 1,
+    duration: 1,
+  });
+
+  gsap.to("#titulo-sombra-wallpapers", {
+    scrollTrigger: {
+      trigger: "#titulo-sombra-wallpapers",
+      start: "top 80%",
+      end: "bottom 5%",
+      scrub: true,
+    },
+    x: -10.8,
+    opacity: 1,
+    duration: 1,
+  });
+
+  gsap.to(".story", {
+    scrollTrigger: {
+      trigger: ".story",
+      start: "top bottom",
+      end: "top 10%",
+      scrub: true,
+      // markers: true,
+    },
+    boxShadow: "12px -12px 12px #B31317",
+    duration: 1
+  });
+
+}
+
+function onClickMenu() {
+  document.getElementById("menu-mobile").classList.toggle("change");
+  document.getElementById("nav-list-mobile").classList.toggle("change");
+  document.getElementById("nav-header").classList.toggle("change");
+
+}
+
+function scrollNav() {
+  let lastScrollTop = 0;
+
+  window.addEventListener("scroll", function () {
+    if (document.getElementById("nav-header").classList.contains("change")) {
+      console.log('entrou');
+      document.getElementById("menu-mobile").classList.remove("change");
+      document.getElementById("nav-list-mobile").classList.remove("change");
+      document.getElementById("nav-header").classList.remove("change");
+    }
+
+
+    var nav = document.querySelector("#nav-header");
+
+    if (window.scrollY == 0 && document.querySelector("#nav-header.sticky")) {
+      nav.classList.toggle("sticky");
+      return;
+    }
+
+    var nav = document.querySelector("#nav-header");
+    if (nav != null) {
+      nav.classList.toggle("sticky", window.scrollY < lastScrollTop);
+    }
+
+    lastScrollTop = window.scrollY;
+  });
+}
 
 function go(elem) {
   window.scroll({
@@ -97,3 +206,15 @@ function go(elem) {
     behavior: "smooth",
   });
 }
+
+function animateLogo() {
+  let elemento = document.getElementById("logo-menu").children[0].children[0];
+  elemento.classList.add("logo-spiderman-menu");
+
+  setTimeout(() => {
+    elemento.classList.remove("logo-spiderman-menu");
+  }, 4000)
+
+}
+
+scrollNav();
