@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Mukta", sans-serif;
+  user-select: none;
 }
 
 // mixin - possibilita criar funções no CSS, ele é um recurso que o Sass oferece

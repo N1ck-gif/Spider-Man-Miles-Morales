@@ -124,6 +124,30 @@ document.addEventListener("DOMContentLoaded", () => {
       { y: -50, opacity: 0 },
       { y: 0, opacity: 1, ease: Expo.easeinOut },
       "-=0.5"
+    )
+
+    .fromTo(
+      ".section-story",
+      0.7,
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, ease: Expo.easeinOut },
+      "-=0.5"
+    )
+
+    .fromTo(
+      ".section-wallpaper",
+      0.7,
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, ease: Expo.easeinOut },
+      "-=0.5"
+    )
+
+    .fromTo(
+      "#footer",
+      0.7,
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, ease: Expo.easeinOut },
+      "-=0.5"
     );
 
     setTimeout(() => {
