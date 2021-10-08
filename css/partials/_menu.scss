@@ -9,6 +9,7 @@ header {
 #nav-header.change {
     background: linear-gradient(110deg, $blue-dark 25%, rgba(11, 12, 16, 0.8) 50%, $blue-dark 70%);
     height: 300px;
+    z-index: 1000;
 }
 
 .navbar {

@@ -79,6 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
     )
 
     .fromTo(
+      ".bx",
+      0.7,
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, ease: Expo.easeinOut },
+      "-=0.5"
+    )
+
+    .fromTo(
       ".item-1",
       0.7,
       { y: -50, opacity: 0 },
