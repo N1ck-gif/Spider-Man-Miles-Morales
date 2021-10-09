@@ -26,6 +26,9 @@ O tema escolhido para o projeto foi sobre o jogo do homem-aranha, chamado Spider
 
 ## **👀 Demonstração**
 
+Confira abaixo uma pequena demostração do projeto.
+**OBS:** a demonstração abaixo está desatualizada, para ver a versão mais atualizada, com novos efeitos + responsivo, acesse https://spiderman-miles-morales.netlify.app/
+
 <br /><img style="width: 90%; margin-left: 7vw" src="./img/demonstracao.gif"><br /><br />
 
 ---
