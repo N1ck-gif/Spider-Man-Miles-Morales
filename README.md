@@ -8,7 +8,6 @@
  <a href="#-demonstracao">Demonstração</a> •
  <a href="#-como-executar-o-projeto">Como executar</a> • 
  <a href="#tecnologias">Tecnologias</a> • 
- <a href="#licenc-a">Licença</a> • 
  <a href="#autor">Autor</a>
 </p><br />
 
@@ -32,21 +31,6 @@ Confira abaixo uma pequena demostração do projeto. <br />
 <br /><img style="width: 90%; margin-left: 7vw" src="./img/demonstracao.gif"><br /><br />
 
 ---
-## **🚀 Como executar o projeto**
-
-Antes de começar, você vai precisar ter instalado em sua máquina a ferramenta **Git** para poder clonar o projeto em seu computador. 
-
-```bash
-
-# Clone este repositório
-$ git clone https://github.com/N1ck-gif/Spider-Man-Miles-Morales.git
-
-```
-Após este procedimento, basta abrir o arquivo **index.html** para iniciar o projeto.<br /><br />
-
----
-
-
 ## **🛠 Tecnologias**
 As seguintes ferramentas foram usadas na construção do projeto:
 
@@ -62,6 +46,20 @@ As seguintes ferramentas foram usadas na construção do projeto:
 &nbsp; Carousel:
 
 - [Slick Carousel](https://kenwheeler.github.io/slick/)<br /><br />
+
+---
+
+## **🚀 Como executar o projeto**
+
+Antes de começar, você vai precisar ter instalado em sua máquina a ferramenta **Git** para poder clonar o projeto em seu computador. 
+
+```bash
+
+# Clone este repositório
+$ git clone https://github.com/N1ck-gif/Spider-Man-Miles-Morales.git
+
+```
+Após este procedimento, basta abrir o arquivo **index.html** para iniciar o projeto.<br /><br />
 
 ---
 
