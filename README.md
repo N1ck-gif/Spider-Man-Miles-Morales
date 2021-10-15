@@ -9,6 +9,7 @@
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-como-executar-o-projeto">Como executar</a> • 
  <a href="#-autor">Autor</a>
+ <a href="#-licença">Licença</a>
 </p><br />
 
 <h4 align="center"> 
@@ -76,3 +77,6 @@ Após este procedimento, basta abrir o arquivo **index.html** para iniciar o pro
 <br /><br />
 
 ---
+
+## 📝 **Licença**
+Este projeto esta sobe a licença [MIT](./LICENSE).
